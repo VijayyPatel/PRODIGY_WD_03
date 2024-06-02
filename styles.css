@@ -1,0 +1,165 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #fcb69f, #ffecd2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background: linear-gradient(to right, #434343, black);
+    color: #fff;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .game-container {
+    background-color: #333;
+    color: #fff;
+}
+
+h1 {
+    color: #333;
+}
+
+body.dark-mode h1 {
+    color: #fff;
+}
+
+#current-turn {
+    margin: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+body.dark-mode #current-turn {
+    color: #fff;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+body.dark-mode .cell {
+    background-color: #555;
+    border: 2px solid #777;
+}
+
+.cell:hover {
+    background-color: #e6e6e6;
+    transform: scale(1.05);
+}
+
+body.dark-mode .cell:hover {
+    background-color: #666;
+}
+
+.cell.X {
+    color: #ff6b6b;
+    font-family: 'Pacifico', cursive;
+    transition: color 0.3s;
+}
+
+.cell.O {
+    color: #4ecdc4;
+    font-family: 'Pacifico', cursive;
+    transition: color 0.3s;
+}
+
+#game-status {
+    margin: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+body.dark-mode #game-status {
+    color: #fff;
+}
+
+#reset-button, #dark-mode-toggle {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+#reset-button:hover, #dark-mode-toggle:hover {
+    background-color: #e35b5b;
+}
+
+body.dark-mode #reset-button, body.dark-mode #dark-mode-toggle {
+    background-color: #4ecdc4;
+}
+
+body.dark-mode #reset-button:hover, body.dark-mode #dark-mode-toggle:hover {
+    background-color: #3bb5a3;
+}
+
+.winning-cell {
+    background-color: yellow !important;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}
+
+/* Confetti */
+#confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: red;
+    animation: confetti-fall 2s linear infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
